@@ -1,0 +1,40 @@
+# docker-compose.yml
+version: "3.7"
+
+services:
+
+  backend:
+    build: ./backend
+    ports:
+      - '5000:5000'
+    container_name: tesa-backend
+    restart: always
+    links:
+      - postgres
+    environment:
+      DB_HOST: postgres
+      DB_USER: postgres
+      DB_NAME: campaign
+  
+  postgres:
+    image: postgres
+    ports:
+      - "35432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: campaign
+
+  frontend: 
+    build: ./frontend
+    ports: 
+      - "3000:3000"
+    container_name: tesa-frontend
+    links:
+      - backend
+    restart: always
+    stdin_open: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true 
+  
+  
