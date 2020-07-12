@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-//import * as ReactBootStrap from 'react-bootstrap';
 import axios from 'axios';
 import Pagination from './Pagination';
 
