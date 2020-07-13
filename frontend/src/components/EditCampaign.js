@@ -79,7 +79,7 @@ export default class EditCampaign extends Component {
 	}
 
 	render() {
-		const status = [ 'geplant', 'laufend', 'in Bearbeitung', 'abgelaufen' ];
+		const status = [ '', 'geplant', 'laufend', 'in Bearbeitung', 'abgelaufen' ];
 		return (
 			<div>
 				<h3>Edit Campaign</h3>
@@ -96,7 +96,7 @@ export default class EditCampaign extends Component {
 					</div>
 					<div className="form-group">
 						<label>Status </label>
-						<select className="form-control" value={this.state.status} onSelect={this.onChangeStatus}>
+						<select className="form-control" value={this.state.status} onChange={this.onChangeStatus}>
 							{status.map((status, i) => (
 								<option key={i} value={status}>
 									{status}

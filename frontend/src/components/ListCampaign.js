@@ -4,36 +4,37 @@ import axios from 'axios';
 import Pagination from './Pagination';
 
 const Status = (props) => {
-	if (props.status === 'geplant') {
-		return (
-			<p style={{ color: 'blue' }}>
-				<span>&#9679;</span> {props.status}
-			</p>
-		);
-	} else if (props.status === 'laufend') {
-		return (
-			<p style={{ color: 'green' }}>
-				<span>&#9679;</span> {props.status}
-			</p>
-		);
-	} else if (props.status === 'in Bearbeitung') {
-		return (
-			<p style={{ color: 'grey' }}>
-				<span>&#9679;</span> {props.status}
-			</p>
-		);
-	} else if (props.status === 'abgelaufen') {
-		return (
-			<p style={{ color: 'red' }}>
-				<span>&#9679;</span> {props.status}
-			</p>
-		);
-	} else {
-		return (
-			<p style={{ color: 'black' }}>
-				<span>&#9679;</span> {props.status}
-			</p>
-		);
+	switch (props.status) {
+		case 'geplant':
+			return (
+				<p style={{ color: 'blue' }}>
+					<span>&#9679;</span> {props.status}
+				</p>
+			);
+
+		case 'laufend':
+			return (
+				<p style={{ color: 'green' }}>
+					<span>&#9679;</span> {props.status}
+				</p>
+			);
+
+		case 'in Bearbeitung':
+			return (
+				<p style={{ color: 'grey' }}>
+					<span>&#9679;</span> {props.status}
+				</p>
+			);
+
+		case 'abgelaufen':
+			return (
+				<p style={{ color: 'red' }}>
+					<span>&#9679;</span> {props.status}
+				</p>
+			);
+
+		default:
+			return <p />;
 	}
 };
 
@@ -71,13 +72,19 @@ const Action = (props) => {
 };
 
 const Exercise = (props) => (
-	<tr key={props.campaign.campaign_title}>
+	<tr key={props.campaign.campaign_id}>
 		<td>{props.campaign.campaign_title}</td>
 		<td>
 			{' '}
 			<Status status={props.campaign.status} />
 		</td>
-		<td>{props.campaign.creation_date}</td>
+		<td>
+			{props.campaign.creation_date.split('T')[0] +
+				'-' +
+				props.campaign.creation_date.split('T')[1].split(':')[0] +
+				':' +
+				props.campaign.creation_date.split('T')[1].split(':')[1]}
+		</td>
 		<td>{props.campaign.creation_user}</td>
 		<td>
 			<Link to={'/edit/' + props.campaign.campaign_id}>
@@ -105,9 +112,9 @@ export default class ListCampaign extends Component {
 
 		this.state = {
 			campaigns: [],
-			loading: false,
 			currentPage: 1,
-			postsPerPage: 10
+			postsPerPage: 10,
+			errorMessage: ''
 		};
 	}
 
@@ -116,10 +123,10 @@ export default class ListCampaign extends Component {
 			.get(`http://localhost:5000/api/campaign`)
 			.then((response) => {
 				this.setState({ campaigns: response.data });
-				this.setState({ loading: true });
 			})
 			.catch((error) => {
-				console.log(error);
+				console.log(error.status);
+				this.setState({ errorMessage: error.message });
 			});
 	}
 
@@ -140,6 +147,10 @@ export default class ListCampaign extends Component {
 	}
 
 	render() {
+		if (this.state.errorMessage) {
+			// You can render any custom fallback UI
+			return <h1>Server is not running.</h1>;
+		}
 		const { currentPage, postsPerPage } = this.state;
 
 		const indexOfLastPost = currentPage * postsPerPage;
@@ -152,7 +163,7 @@ export default class ListCampaign extends Component {
 
 		return (
 			<div>
-				<table className="table">
+				<table className="table table-hover">
 					<thead className="thead-light">
 						<tr>
 							<th>Kampagnentitel</th>

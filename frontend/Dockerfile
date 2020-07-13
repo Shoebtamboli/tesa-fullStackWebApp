@@ -15,8 +15,3 @@ COPY . /usr/src/app
 EXPOSE 3000
 CMD ["npm","start"]
 
-# bundle app source
-# VOLUME /usr/src/app/
-
-# psql
-# RUN apt-get update && apt-get install -y postgresql-client

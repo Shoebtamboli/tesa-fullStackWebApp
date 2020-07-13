@@ -11,9 +11,11 @@
 }
 
 .header {
-	color: #5dbcd2;
+	color: #09adf3;
 	margin-top: 10px;
 	margin-bottom: 100px;
+	font-size: 35pt;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .App-logo {
@@ -36,20 +38,6 @@
 	padding-top: 100px;
 }
 
-.ul {
-	list-style: none;
-	padding: 0px;
-	display: flex;
-}
-.li {
-	background: #4e1f9b;
-	padding: 10px 15px;
-	margin-right: 4px;
-	border-radius: 4px;
-	font-family: sans-serif;
-	color: #fff;
-	font-size: 1.1rem;
-	min-width: 20px;
-	text-align: center;
-	user-select: none;
+.table-hover tr:hover td {
+	background-color: rgb(247, 240, 240);
 }

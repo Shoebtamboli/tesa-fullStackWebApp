@@ -15,7 +15,7 @@ function App() {
 				<div className="container">
 					<Navbar bg="light" expand="lg">
 						<Navbar.Brand href="/">
-							<img src={logo} width="130" exact height="50" alt="Tesa brand logo" />
+							<img src={logo} width="130" height="50" alt="Tesa brand logo" />
 						</Navbar.Brand>
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav">

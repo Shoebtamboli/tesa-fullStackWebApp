@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export default class CreateCampaign extends Component {
 	constructor(props) {
@@ -62,7 +63,7 @@ export default class CreateCampaign extends Component {
 	}
 
 	render() {
-		const status = [ 'geplant', 'laufend', 'in Bearbeitung', 'abgelaufen' ];
+		const status = [ '', 'geplant', 'laufend', 'in Bearbeitung', 'abgelaufen' ];
 
 		return (
 			<div>
@@ -80,7 +81,7 @@ export default class CreateCampaign extends Component {
 					</div>
 					<div className="form-group">
 						<label>Status </label>
-						<select className="form-control" value={this.state.status} onSelect={this.onChangeStatus}>
+						<select className="form-control" value={this.state.status} onChange={this.onChangeStatus}>
 							{status.map((status, i) => (
 								<option key={i} value={status}>
 									{status}
@@ -92,11 +93,7 @@ export default class CreateCampaign extends Component {
 					<div className="form-group">
 						<label>Erstellungsdatum </label>
 						<div>
-							<DatePicker
-								selected={this.state.creation_date}
-								showTimeInput
-								onChange={this.onChangeDate}
-							/>
+							<DatePicker selected={this.state.creation_date} onChange={this.onChangeDate} />
 						</div>
 					</div>
 

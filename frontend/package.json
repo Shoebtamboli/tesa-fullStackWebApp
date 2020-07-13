@@ -9,8 +9,6 @@
     "axios": "^0.19.2",
     "react": "^16.13.1",
     "react-bootstrap": "^1.1.1",
-    "react-bootstrap-datetimepicker": "0.0.22",
-    "react-bootstrap-table2-paginator": "^2.1.2",
     "react-datepicker": "^3.0.0",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
@@ -19,18 +17,13 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
