@@ -11,8 +11,8 @@
     docker-compose up
 
 ### The app is running on port 3000! 
-    Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
     
-    To check the API document use [http://localhost:3000/api-docs](http://localhost:3000/api-docs)
+To check the API document use [http://localhost:3000/api-docs](http://localhost:3000/api-docs)
 
 
