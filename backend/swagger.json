@@ -1,0 +1,225 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "API information about Tesa full stack web app ",
+        "version": "1.0.0",
+        "title": "Swagger Docs"
+    },
+    "host": "localhost:5000",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/campaign": {
+            "get": {
+                "tags": [
+                    "campaign"
+                ],
+                "summary": "Read all the registered campaign",
+                "description": "",
+                "operationId": "getAllCampaign",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ApiResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "No data in the table"
+                    }
+                },
+                "x-swagger-router-controller": "Campaign"
+            },
+            "post": {
+                "tags": [
+                    "campaign"
+                ],
+                "summary": "To register a new campaign",
+                "description": "",
+                "operationId": "createCampaign",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Campaign object that needs to be registred",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Campaign"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                },
+                "x-swagger-router-controller": "Campaign"
+            }
+        },
+        "/campaign/{id}": {
+            "get": {
+                "tags": [
+                    "campaign"
+                ],
+                "summary": "To read selected campaign",
+                "description": "",
+                "operationId": "getCampaignById",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Campaign ID",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "404": {
+                        "description": "Invalid id supplied"
+                    }
+                },
+                "x-swagger-router-controller": "Campaign"
+            },
+            "post": {
+                "tags": [
+                    "campaign"
+                ],
+                "summary": "To update the selected campaign",
+                "description": "",
+                "operationId": "updateCampaignById",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Campaign ID",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Campaign object that needs to be updated",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Campaign"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Campaign was updated"
+                    },
+                    "400": {
+                        "description": "Invalid campaign id"
+                    }
+                },
+                "x-swagger-router-controller": "Campaign"
+            },
+            "delete": {
+                "tags": [
+                    "campaign"
+                ],
+                "summary": "To delete selected campaign",
+                "description": "",
+                "operationId": "deleteCampaignById",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Campaign ID",
+                        "required": true,
+                        "type": "integer",
+                        "maximum": 10,
+                        "minimum": 1,
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Campaign was deleted!"
+                    },
+                    "400": {
+                        "description": "Invalid campaign id"
+                    }
+                },
+                "x-swagger-router-controller": "Campaign"
+            }
+        }
+    },
+    "definitions": {
+        "Campaign": {
+            "type": "object",
+            "properties": {
+                "campaign_title": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "creation_date": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "creation_user": {
+                    "type": "string"
+                }
+            }
+        },
+        "ApiResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

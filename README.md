@@ -3,14 +3,18 @@ title: tesa scribos / web development task
 ---
 
 # How to Run 
-    git clone 
-    cd 
+    git clone https://github.com/Shoebtamboli/tesa-fullStackWebApp.git
+    cd tesa-fullStackWebApp
     docker-compose up --build -d
     docker-compose up
 
-    Check that application is running on localhost:3000
+    Check that application is running on `localhost:3000`
 
 ### How to start my application if docker doesnt work
+
+    git clone https://github.com/Shoebtamboli/tesa-fullStackWebApp.git
+    cd tesa-fullStackWebApp
+    
 
 ### start the server
     

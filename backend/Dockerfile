@@ -1,5 +1,5 @@
 # Create image based on node image
-FROM node:12
+FROM node:12.18.2-stretch-slim
 
 # create app directory where app will be placed
 RUN mkdir -p /usr/src/app

@@ -11,7 +11,7 @@ const createCampaign = async (req, res) => {
 		res.status(201).json(newCampaign.rows[0]);
 	} catch (err) {
 		//console.status(400).error('Error: ' + err.message);
-		console.log(err.message);
+		console.error(err.message);
 	}
 };
 
@@ -22,6 +22,7 @@ const getAllCampaign = async (req, res) => {
 		res.status(200).json(allCampaigns.rows);
 	} catch (err) {
 		console.error(err.message);
+		res.status(400).json('No data in the table');
 	}
 };
 
