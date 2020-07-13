@@ -3,7 +3,7 @@
     "info": {
         "description": "API information about Tesa full stack web app ",
         "version": "1.0.0",
-        "title": "Swagger Docs"
+        "title": "Tesa Swagger Docs"
     },
     "host": "localhost:5000",
     "basePath": "/api",
@@ -108,7 +108,7 @@
                 },
                 "x-swagger-router-controller": "Campaign"
             },
-            "post": {
+            "put": {
                 "tags": [
                     "campaign"
                 ],

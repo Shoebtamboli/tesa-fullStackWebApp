@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json()); //req.body
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
 //ROUTES
 

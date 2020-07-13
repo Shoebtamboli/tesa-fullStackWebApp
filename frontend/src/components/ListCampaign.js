@@ -113,7 +113,7 @@ export default class ListCampaign extends Component {
 
 	componentDidMount() {
 		axios
-			.get('http://localhost:5000/api/campaign')
+			.get(`http://localhost:5000/api/campaign`)
 			.then((response) => {
 				this.setState({ campaigns: response.data });
 				this.setState({ loading: true });
@@ -146,11 +146,8 @@ export default class ListCampaign extends Component {
 		const indexOfFirstPost = indexOfLastPost - postsPerPage;
 
 		const currentCampaign = this.state.campaigns.slice(indexOfFirstPost, indexOfLastPost);
-
 		const paginate = (pageNum) => this.setState({ currentPage: pageNum });
-
 		const nextPage = () => this.setState({ currentPage: currentPage + 1 });
-
 		const prevPage = () => this.setState({ currentPage: currentPage - 1 });
 
 		return (

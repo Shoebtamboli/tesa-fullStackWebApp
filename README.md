@@ -51,6 +51,8 @@ title: tesa scribos / web development task
     curl -X DELETE "localhost:5000/api/campaign/:id" -H "accept: application/json"
     curl -X POST "localhost:5000/api/campaign/:id" -H "accept: application/json"
 
+docker volume rm $(docker volume ls -q)
+
 
 
 

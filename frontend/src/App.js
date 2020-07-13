@@ -6,6 +6,7 @@ import CreateCampaign from './components/CreateCampaign';
 import ListCampaign from './components/ListCampaign';
 import { Nav, Navbar } from 'react-bootstrap';
 import EditCampaign from './components/EditCampaign';
+import logo from './images/01.png';
 
 function App() {
 	return (
@@ -13,7 +14,9 @@ function App() {
 			<Router>
 				<div className="container">
 					<Navbar bg="light" expand="lg">
-						<Navbar.Brand href="/">BRAND</Navbar.Brand>
+						<Navbar.Brand href="/">
+							<img src={logo} width="130" exact height="50" alt="Tesa brand logo" />
+						</Navbar.Brand>
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav">
 							<Nav className="mr-auto">
@@ -21,12 +24,9 @@ function App() {
 							</Nav>
 						</Navbar.Collapse>
 					</Navbar>
-					<br />
+
 					<h1 className="header">KAMPAGNEN</h1>
-					<br />
-					<br />
-					<br />
-					<br />
+
 					<Route path="/" exact component={ListCampaign} />
 					<Route path="/edit/:id" exact component={EditCampaign} />
 					<Route path="/create" exact component={CreateCampaign} />
