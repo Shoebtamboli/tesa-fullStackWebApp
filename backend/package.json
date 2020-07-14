@@ -5,22 +5,21 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "cross-env NODE_ENV=test jest --testTimeout=10000",
-		"test:debug": "node --inspect node_modules/.bin/jest --runInBand",
-		"start": "node index.js",
-		"test:watch": "jest --watch"
+		"start": "node index.js"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"chai-http": "^4.3.0",
 		"cors": "^2.8.5",
+		"cross-env": "^7.0.2",
 		"express": "^4.17.1",
 		"pg": "^8.3.0",
 		"swagger-ui-express": "^4.1.4"
 	},
 	"devDependencies": {
-		"chai": "^4.2.0",
-		"mocha": "^8.0.1",
-		"supertest": "^4.0.2"
+		"supertest": "^4.0.2",
+		"jest": "^24.9.0"
 	}
 }
