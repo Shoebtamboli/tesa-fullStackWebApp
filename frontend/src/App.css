@@ -55,16 +55,9 @@
 	font-family: sans-serif;
 	min-width: 20px;
 	text-align: center;
+	font-style: italic;
 }
 
 .page-link {
-	color: black;
-}
-
-.prev-link {
-	color: black;
-}
-
-.next-link {
 	color: black;
 }

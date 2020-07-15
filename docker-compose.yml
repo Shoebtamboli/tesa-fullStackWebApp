@@ -38,4 +38,3 @@ services:
     stdin_open: true
     environment:
       - CHOKIDAR_USEPOLLING=true
-
