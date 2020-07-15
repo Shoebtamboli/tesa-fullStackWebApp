@@ -25,7 +25,7 @@ services:
       POSTGRES_DB: campaign
     volumes:
       - "./backend/create.sql:/docker-entrypoint-initdb.d/init.sql"
-      - data:/var/lib/postgresql/data
+      - ./backend/data:/var/lib/postgresql/data
 
   frontend:
     build: ./frontend
