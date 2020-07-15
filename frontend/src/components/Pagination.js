@@ -2,30 +2,30 @@ import React, { Component } from 'react';
 
 export class Pagination extends Component {
 	render() {
-		const { postsPerPage, totalPosts, paginate, nextPage, prevPage } = this.props;
+		const { postsPerPage, totalPosts, paginate, nextPage, prevPage, currentPage } = this.props;
 
 		const pageNumbers = [];
 
 		for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
 			pageNumbers.push(i);
 		}
-
+		console.log(pageNumbers);
 		return (
-			<div>
+			<div className="pagenumbers">
 				<ul className="pagination justify-content-center">
-					<li className="page-item">
+					<li className={`${pageNumbers[0] === currentPage && 'disabled'}`}>
 						<a className="page-link" href="/#" onClick={() => prevPage()}>
 							{'<'}
 						</a>
 					</li>
-					{pageNumbers.map((num) => (
-						<li className="page-item" key={num}>
-							<a onClick={() => paginate(num)} href="/#" className="page-link">
-								{num}
+					{pageNumbers.map((page) => (
+						<li className={`${currentPage === page && 'active'}`} key={page}>
+							<a onClick={() => paginate(page)} href="/#" className="page-link">
+								{page}
 							</a>
 						</li>
 					))}
-					<li className="page-item">
+					<li className={`${pageNumbers.reverse()[0] === currentPage && 'disabled'}`}>
 						<a className="page-link" href="/#" onClick={() => nextPage()}>
 							{'>'}
 						</a>

@@ -30,12 +30,10 @@
                     "200": {
                         "description": "successful operation",
                         "schema": {
-                            "$ref": "#/definitions/ApiResponse"
+                            "type": "object"
                         }
-                    },
-                    "400": {
-                        "description": "No data in the table"
                     }
+                    
                 },
                 "x-swagger-router-controller": "Campaign"
             },
@@ -100,10 +98,10 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "successful operation"
-                    },
-                    "404": {
-                        "description": "Invalid id supplied"
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 },
                 "x-swagger-router-controller": "Campaign"
@@ -143,9 +141,6 @@
                 "responses": {
                     "201": {
                         "description": "Campaign was updated"
-                    },
-                    "400": {
-                        "description": "Invalid campaign id"
                     }
                 },
                 "x-swagger-router-controller": "Campaign"
@@ -170,7 +165,6 @@
                         "description": "Campaign ID",
                         "required": true,
                         "type": "integer",
-                        "maximum": 10,
                         "minimum": 1,
                         "format": "int64"
                     }
@@ -178,9 +172,6 @@
                 "responses": {
                     "202": {
                         "description": "Campaign was deleted!"
-                    },
-                    "400": {
-                        "description": "Invalid campaign id"
                     }
                 },
                 "x-swagger-router-controller": "Campaign"
@@ -209,13 +200,6 @@
         "ApiResponse": {
             "type": "object",
             "properties": {
-                "code": {
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "type": {
-                    "type": "string"
-                },
                 "message": {
                     "type": "string"
                 }

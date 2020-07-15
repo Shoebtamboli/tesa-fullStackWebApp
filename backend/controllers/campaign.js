@@ -22,7 +22,7 @@ const getAllCampaign = async (req, res) => {
 		const allCampaigns = await pool.query(text);
 		res.status(200).json(allCampaigns.rows);
 	} catch (err) {
-		res.status(404).send({ message: 'No campaign data available' });
+		res.send({ message: 'No campaign data available' });
 	}
 };
 
@@ -32,19 +32,14 @@ const getCampaignById = async (req, res) => {
 		const text = 'SELECT * FROM campaign WHERE campaign_id = $1';
 		const values = [ id ];
 		const campaign = await pool.query(text, values);
-
 		res.status(200).json(campaign.rows[0]);
 	} catch (err) {
-		res.status(404).send({
-			message: 'Campaign with specific Id does not exists'
-		});
+		console.log(err.message);
 	}
 };
 
 const updateCampaignById = async (req, res) => {
 	try {
-		console.log('BODY', req.body);
-		console.log(req.params);
 		const { id } = req.params;
 		const { campaign_title, status, creation_date, creation_user } = req.body;
 		const text =
@@ -55,9 +50,7 @@ const updateCampaignById = async (req, res) => {
 		console.log(updateCampaign);
 		res.status(200).json({ message: 'Campaign was updated!' });
 	} catch (err) {
-		res.status(404).send({
-			message: err.message
-		});
+		console.log(err.message);
 	}
 };
 
@@ -66,12 +59,10 @@ const deleteCampaignById = async (req, res) => {
 		const { id } = req.params;
 		const text = 'DELETE FROM campaign WHERE campaign_id = $1';
 		const values = [ id ];
-		const deleteCampaign = await pool.query(text, values);
+		await pool.query(text, values);
 		res.status(202).json({ message: 'Campaign was deleted!' });
 	} catch (err) {
-		res.status(404).json({
-			message: 'Campaign not found'
-		});
+		console.log(err.message)
 	}
 };
 

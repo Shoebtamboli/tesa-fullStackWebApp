@@ -181,6 +181,7 @@ export default class ListCampaign extends Component {
 					paginate={paginate}
 					nextPage={nextPage}
 					prevPage={prevPage}
+					currentPage={currentPage}
 				/>
 			</div>
 		);

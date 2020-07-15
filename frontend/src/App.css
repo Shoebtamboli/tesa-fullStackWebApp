@@ -33,11 +33,38 @@
 }
 
 .pagination {
-	display: flex;
-	justify-content: center;
-	padding-top: 100px;
+	display: inline-flexbox;
+	padding-top: 10px;
+	color: black;
 }
 
 .table-hover tr:hover td {
 	background-color: rgb(247, 240, 240);
+}
+
+.disabled {
+	display: inline;
+	background: cadetblue;
+	pointer-events: none;
+}
+
+.active {
+	display: inline;
+	pointer-events: none;
+	border-radius: 100px;
+	font-family: sans-serif;
+	min-width: 20px;
+	text-align: center;
+}
+
+.page-link {
+	color: black;
+}
+
+.prev-link {
+	color: black;
+}
+
+.next-link {
+	color: black;
 }
