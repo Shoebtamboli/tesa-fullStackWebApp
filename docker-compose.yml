@@ -39,5 +39,3 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
 
-volumes:
-  data: {}

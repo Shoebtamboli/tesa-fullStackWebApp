@@ -6,7 +6,7 @@
 #### Navigate to project directory
     cd tesa-fullStackWebApp
 
-#### Build and run docker-compose
+#### Build and run with docker-compose
     docker-compose up
 
 ### The app is running on port 3000! 
